@@ -13,7 +13,8 @@ const CONFIG = {
     selectors: {
         team: '#team-container',
         services: '#services-container',
-        blog: '#blog-preview'
+        blog: '#blog-preview',
+        fullBlog: '#full-blog-list'
     }
 };
 
@@ -78,7 +79,7 @@ async function renderServices(data) {
             <ul class="service-card__features">
                 ${product.features.map(feature => `<li class="service-card__feature-item">${feature}</li>`).join('')}
             </ul>
-            <button class="btn btn--primary service-card__action">Enroll Now</button>
+            <button class="btn btn--primary service-card__action">Записаться</button>
         </div>
     `).join('');
 
@@ -86,7 +87,7 @@ async function renderServices(data) {
 }
 
 /**
- * Renders the Blog Preview section.
+ * Renders the Blog Preview section (Home).
  * @param {Array} data - Array of blog post objects.
  */
 async function renderBlog(data) {
@@ -103,7 +104,7 @@ async function renderBlog(data) {
             </div>
             <h3 class="blog-card__title">${post.title}</h3>
             <p class="blog-card__excerpt">${post.excerpt}</p>
-            <a href="${post.link}" class="link link--arrow">Read More &rarr;</a>
+            <a href="${post.link}" class="link link--arrow">Читать далее &rarr;</a>
         </div>
     `).join('');
 
@@ -111,30 +112,120 @@ async function renderBlog(data) {
 }
 
 /**
- * Initialize the application.
- * Orchestrates parallel data fetching and rendering.
+ * Renders the Full Blog List (Blog Archive).
+ * @param {Array} data - Array of blog post objects.
+ */
+async function renderAllArticles(data) {
+    const container = document.querySelector(CONFIG.selectors.fullBlog);
+    if (!container || !data) return;
+
+    const html = data.map(post => `
+        <div class="card blog-card" style="display: flex; flex-direction: column; height: 100%;">
+            <div class="blog-card__header">
+                <time class="blog-card__date" datetime="${post.date}">${post.date}</time>
+                <div class="blog-card__tags">
+                    ${post.tags.map(tag => `<span class="tag tag--small">${tag}</span>`).join('')}
+                </div>
+            </div>
+            <h3 class="blog-card__title" style="margin-top: auto; margin-bottom: 0.5rem;">${post.title}</h3>
+            <p class="blog-card__excerpt" style="flex-grow: 1;">${post.excerpt}</p>
+            <a href="${post.link}" class="link link--arrow" style="margin-top: 1rem;">Читать далее &rarr;</a>
+        </div>
+    `).join('');
+
+    container.innerHTML = html;
+}
+
+/**
+ * Initializes the application based on current page.
  */
 async function init() {
     console.log("System initialized. Welcome to Munificent.");
 
-    // Fetch all data in parallel
-    const [teamData, productsData, blogData] = await Promise.all([
-        fetchData(CONFIG.paths.team),
-        fetchData(CONFIG.paths.products),
-        fetchData(CONFIG.paths.blog)
-    ]);
+    if (window.location.pathname.includes('article.html')) {
+        renderFullArticle();
+    } else if (window.location.pathname.includes('blog.html')) {
+        // Blog Archive Logic
+        const blogData = await fetchData(CONFIG.paths.blog);
+        renderAllArticles(blogData);
+    } else {
+        // Main Logic for Landing Page
+        const teamContainer = document.querySelector(CONFIG.selectors.team);
+        if (teamContainer) {
+            const [teamData, productsData, blogData] = await Promise.all([
+                fetchData(CONFIG.paths.team),
+                fetchData(CONFIG.paths.products),
+                fetchData(CONFIG.paths.blog)
+            ]);
 
-    // Render components
-    renderTeam(teamData);
-    renderServices(productsData);
-    renderBlog(blogData);
+            renderTeam(teamData);
+            renderServices(productsData);
+            renderBlog(blogData);
+        }
+    }
+}
+
+/**
+ * Renders a single full article page.
+ */
+function renderFullArticle() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = parseInt(urlParams.get('id'));
+
+    if (!id) {
+        document.getElementById('article-title').textContent = "Статья не найдена";
+        return;
+    }
+
+    fetch('data/blog.json')
+        .then(response => response.json())
+        .then(data => {
+            const post = data.find(p => p.id === id);
+            if (post) {
+                document.title = `${post.title} | Munificent`;
+                document.getElementById('article-title').textContent = post.title;
+                document.getElementById('article-meta').innerHTML = `
+                    <span>${post.date}</span> | 
+                    <span style="color: var(--accent);">${post.tags.join(', ')}</span>
+                `;
+                document.getElementById('article-content').innerHTML = post.content;
+            } else {
+                document.getElementById('article-title').textContent = "Статья не найдена";
+                document.getElementById('article-content').innerHTML = "<p>Запрашиваемый материал отсутствует в нашей базе.</p>";
+            }
+        })
+        .catch(err => console.error('Failed to load article:', err));
 }
 
 // Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
     init();
     setupModal();
+    setupMobileMenu();
 });
+
+/**
+ * Sets up the Mobile Menu toggle logic.
+ */
+function setupMobileMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('open');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('open');
+            });
+        });
+    }
+}
 
 /**
  * Sets up the Modal interaction logic.
@@ -193,18 +284,18 @@ function setupModal() {
 
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
+            submitBtn.textContent = 'Отправка...';
             submitBtn.disabled = true;
 
             emailjs.sendForm('contact_service', 'contact_form', this)
                 .then(() => {
                     console.log('SUCCESS!');
-                    alert("Message Sent! We will be in touch shortly.");
+                    alert("Сообщение отправлено! Мы скоро свяжемся с вами.");
                     closeModal();
                     form.reset();
                 }, (error) => {
                     console.log('FAILED...', error);
-                    alert("Failed to send message. Please try again later.");
+                    alert("Ошибка отправки. Пожалуйста, попробуйте позже.");
                 })
                 .finally(() => {
                     submitBtn.textContent = originalText;

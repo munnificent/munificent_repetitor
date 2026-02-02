@@ -1,21 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Professional Physics & Math Tutor for students. Master ENT (UNT) prep, Geometry, and Algebra with personalized lessons in Almaty.">
-    <meta name="keywords" content="Tutor, ENT, Physics, Math, Almaty, UNT Preparation, Algebra, Geometry">
-    <title>Munificent | Physics & Math</title>
+        content="Блог Munificent. Статьи о физике и математике, лайфхаки для ЕНТ/ЕГЭ, советы по поступлению.">
+    <meta name="keywords" content="блог, физика, математика, ЕНТ, советы, обучение">
+    <title>Блог Munificent | Статьи о физике и математике</title>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://munificent.school/">
-    <meta property="og:title" content="Munificent | Physics & Math">
-    <meta property="og:description"
-        content="Mastery through rigor and understanding. Expert tutoring for ambitious students.">
+    <meta property="og:url" content="https://munificent.school/blog.html">
+    <meta property="og:title" content="Блог Munificent | Статьи о физике и математике">
+    <meta property="og:description" content="Полезные материалы, разборы задач и советы по подготовке к экзаменам.">
     <meta property="og:image" content="https://munificent.school/assets/img/og-image.jpg">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Munificent Blog",
+      "url": "https://munificent.school/blog.html",
+      "description": "Статьи о физике и математике для школьников",
+      "publisher": {
+        "@type": "EducationalOrganization",
+        "name": "Munificent School",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://munificent.school/assets/img/logo.png"
+        }
+      }
+    }
+    </script>
 
     <!-- Favicon -->
     <link rel="icon"
@@ -43,59 +61,39 @@
     <header id="header">
         <nav class="navbar">
             <div class="container navbar__container">
-                <a href="#" class="logo">MUNIFICENT<span class="dot">.</span></a>
-                <button class="menu-toggle" aria-label="Toggle navigation">
+                <a href="index.html" class="logo">MUNIFICENT<span class="dot">.</span></a>
+                <button class="menu-toggle" aria-label="Открыть меню">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
                 </button>
                 <ul class="nav-links">
-                    <li><a href="#hero" class="nav-link">Home</a></li>
-                    <li><a href="#lead-magnet" class="nav-link">About</a></li>
-                    <li><a href="#services-container" class="nav-link">Services</a></li>
-                    <li><a href="#blog-preview" class="nav-link">Blog</a></li>
-                    <li><a href="#footer" class="nav-link btn-nav">Contact</a></li>
+                    <li><a href="index.html#hero" class="nav-link">Главная</a></li>
+                    <li><a href="index.html#lead-magnet" class="nav-link">Об авторе</a></li>
+                    <li><a href="index.html#services-container" class="nav-link">Услуги</a></li>
+                    <li><a href="blog.html" class="nav-link">Блог</a></li>
+                    <li><a href="index.html#footer" class="nav-link btn-nav">Контакты</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
     <main>
-        <section id="hero">
-            <div class="hero-bg"></div>
+        <section id="hero" style="min-height: 40vh; padding-top: 150px;">
             <div class="container hero-content">
-                <h1>Crack the Code of <span class="highlight">Physics</span></h1>
-                <p>Personalized tutoring for students who want to understand, not just memorize. Master the universe,
-                    one equation at a time.</p>
-                <div class="hero-actions">
-                    <a href="https://wa.me/77085365323?text=Hello,%20I%20want%20to%20sign%20up%20for%20a%20lesson!"
-                        target="_blank" class="btn btn--primary">Get Started</a>
-                    <a href="#services-container" class="btn btn--secondary">View Plans</a>
-                </div>
+                <h1>Наш <span class="highlight">Блог</span></h1>
+                <p>Физика, математика и стратегии обучения.</p>
             </div>
         </section>
 
-        <section id="lead-magnet">
-            <div class="lead-magnet__content">
-                <div class="lead-magnet__text">
-                    <h2>Master Geometry <span class="highlight">Free</span></h2>
-                    <p>Get our exclusive "Ultimate Geometry Cheat Sheet" with all essential theorems and formulas for
-                        UNT/ENT.</p>
+        <section id="blog-archive">
+            <div class="container">
+                <div id="full-blog-list"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <!-- Dynamic Blog Posts Here -->
+                    <p style="text-align:center; grid-column: 1/-1;">Загрузка статей...</p>
                 </div>
-                <button id="openModalBtn" class="btn btn--primary btn--large">Download PDF</button>
             </div>
-        </section>
-
-        <section id="team-container">
-            <!-- Team dynamic content -->
-        </section>
-
-        <section id="services-container">
-            <!-- Services dynamic content -->
-        </section>
-
-        <section id="blog-preview">
-            <!-- Blog preview content -->
         </section>
     </main>
 
@@ -144,6 +142,14 @@
             </form>
         </div>
     </div>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/77085365323" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M16 2C8.268 2 2 8.268 2 16c0 2.479.648 4.881 1.884 7.006L2.357 28.6l5.727-1.498A13.939 13.939 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.562a11.531 11.531 0 01-5.914-1.624l-.424-.252-3.79 1.006 1.01-3.693-.275-.436A11.564 11.564 0 014.438 16c0-6.376 5.187-11.562 11.562-11.562 6.376 0 11.562 5.186 11.562 11.562 0 6.376-5.186 11.562-11.562 11.562z" />
+        </svg>
+    </a>
 
 </body>
 

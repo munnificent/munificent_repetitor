@@ -1,21 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Professional Physics & Math Tutor for students. Master ENT (UNT) prep, Geometry, and Algebra with personalized lessons in Almaty.">
-    <meta name="keywords" content="Tutor, ENT, Physics, Math, Almaty, UNT Preparation, Algebra, Geometry">
-    <title>Munificent | Physics & Math</title>
+    <meta name="description" content="Статья Munificent. Читайте полезные материалы по физике и математике.">
+    <title>Статья | Munificent School</title>
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://munificent.school/">
-    <meta property="og:title" content="Munificent | Physics & Math">
-    <meta property="og:description"
-        content="Mastery through rigor and understanding. Expert tutoring for ambitious students.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://munificent.school/article.html">
+    <meta property="og:title" content="Статья | Munificent School">
+    <meta property="og:description" content="Полезный материал от Munificent School.">
     <meta property="og:image" content="https://munificent.school/assets/img/og-image.jpg">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "publisher": {
+        "@type": "EducationalOrganization",
+        "name": "Munificent School"
+      },
+      "author": {
+         "@type": "Person",
+         "name": "Ескендыр"
+      }
+    }
+    </script>
 
     <!-- Favicon -->
     <link rel="icon"
@@ -43,75 +56,55 @@
     <header id="header">
         <nav class="navbar">
             <div class="container navbar__container">
-                <a href="#" class="logo">MUNIFICENT<span class="dot">.</span></a>
-                <button class="menu-toggle" aria-label="Toggle navigation">
+                <a href="index.html" class="logo">MUNIFICENT<span class="dot">.</span></a>
+                <button class="menu-toggle" aria-label="Открыть меню">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
                 </button>
                 <ul class="nav-links">
-                    <li><a href="#hero" class="nav-link">Home</a></li>
-                    <li><a href="#lead-magnet" class="nav-link">About</a></li>
-                    <li><a href="#services-container" class="nav-link">Services</a></li>
-                    <li><a href="#blog-preview" class="nav-link">Blog</a></li>
-                    <li><a href="#footer" class="nav-link btn-nav">Contact</a></li>
+                    <li><a href="index.html#hero" class="nav-link">Главная</a></li>
+                    <li><a href="index.html#lead-magnet" class="nav-link">Об авторе</a></li>
+                    <li><a href="index.html#services-container" class="nav-link">Услуги</a></li>
+                    <li><a href="blog.html" class="nav-link">Блог</a></li>
+                    <li><a href="index.html#footer" class="nav-link btn-nav">Контакты</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
     <main>
-        <section id="hero">
-            <div class="hero-bg"></div>
-            <div class="container hero-content">
-                <h1>Crack the Code of <span class="highlight">Physics</span></h1>
-                <p>Personalized tutoring for students who want to understand, not just memorize. Master the universe,
-                    one equation at a time.</p>
-                <div class="hero-actions">
-                    <a href="https://wa.me/77085365323?text=Hello,%20I%20want%20to%20sign%20up%20for%20a%20lesson!"
-                        target="_blank" class="btn btn--primary">Get Started</a>
-                    <a href="#services-container" class="btn btn--secondary">View Plans</a>
+        <div class="container" style="padding-top: 120px; max-width: 800px;">
+            <a href="index.html#blog-preview" class="btn-back"
+                style="color: var(--accent); text-decoration: none; display: inline-block; margin-bottom: 2rem;">&larr;
+                Назад в Блог</a>
+
+            <article id="single-article">
+                <h1 id="article-title" style="font-size: 2.5rem; margin-bottom: 1rem;">Загрузка...</h1>
+                <div id="article-meta"
+                    style="color: var(--text-main); font-family: var(--font-tech); font-size: 0.9rem; margin-bottom: 2rem;">
                 </div>
-            </div>
-        </section>
 
-        <section id="lead-magnet">
-            <div class="lead-magnet__content">
-                <div class="lead-magnet__text">
-                    <h2>Master Geometry <span class="highlight">Free</span></h2>
-                    <p>Get our exclusive "Ultimate Geometry Cheat Sheet" with all essential theorems and formulas for
-                        UNT/ENT.</p>
+                <div id="article-content" style="line-height: 1.8; font-size: 1.1rem;">
+                    <!-- Content injected here -->
                 </div>
-                <button id="openModalBtn" class="btn btn--primary btn--large">Download PDF</button>
-            </div>
-        </section>
-
-        <section id="team-container">
-            <!-- Team dynamic content -->
-        </section>
-
-        <section id="services-container">
-            <!-- Services dynamic content -->
-        </section>
-
-        <section id="blog-preview">
-            <!-- Blog preview content -->
-        </section>
+            </article>
+        </div>
     </main>
 
     <footer id="footer">
         <div class="container footer__container">
             <div class="footer__col">
                 <h3>MUNIFICENT<span class="dot">.</span></h3>
-                <p>Advanced Physics & Math tutoring for ambitious students.</p>
+                <p>Продвинутая физика и математика для амбициозных.</p>
             </div>
             <div class="footer__col">
-                <h4>Contact</h4>
-                <p>+7 (777) 123-45-67</p>
+                <h4>Контакты</h4>
+                <p>+7 (708) 536-53-23</p>
                 <p>hello@munificent.school</p>
             </div>
             <div class="footer__col">
-                <h4>Socials</h4>
+                <h4>Соцсети</h4>
                 <div class="social-links">
                     <a href="#" class="social-link">Instagram</a>
                     <a href="#" class="social-link">Telegram</a>
@@ -120,7 +113,7 @@
             </div>
         </div>
         <div class="footer__bottom">
-            <p>&copy; 2026 Munificent School. All rights reserved.</p>
+            <p>&copy; 2026 Munificent School. Все права защищены.</p>
         </div>
     </footer>
 
@@ -128,22 +121,30 @@
     <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
-            <h2>Get the Cheat Sheet</h2>
-            <p>Enter your details below to receive the PDF instantly.</p>
+            <h2>Получи Шпаргалку</h2>
+            <p>Введи данные, и я отправлю PDF тебе на почту.</p>
             <form id="contact-form">
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required placeholder="Your Name">
+                    <label for="name">Имя</label>
+                    <input type="text" id="name" name="name" required placeholder="Твое имя">
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required placeholder="your@email.com">
+                    <input type="email" id="email" name="email" required placeholder="example@gmail.com">
                 </div>
                 <input type="hidden" name="contact_number" value="1">
-                <button type="submit" class="btn btn--primary btn--full">Get It Now</button>
+                <button type="submit" class="btn btn--primary btn--full">Получить сейчас</button>
             </form>
         </div>
     </div>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/77085365323" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M16 2C8.268 2 2 8.268 2 16c0 2.479.648 4.881 1.884 7.006L2.357 28.6l5.727-1.498A13.939 13.939 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.562a11.531 11.531 0 01-5.914-1.624l-.424-.252-3.79 1.006 1.01-3.693-.275-.436A11.564 11.564 0 014.438 16c0-6.376 5.187-11.562 11.562-11.562 6.376 0 11.562 5.186 11.562 11.562 0 6.376-5.186 11.562-11.562 11.562z" />
+        </svg>
+    </a>
 
 </body>
 

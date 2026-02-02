@@ -460,6 +460,36 @@ section {
     flex-grow: 1;
 }
 
+
+/* =========================================
+   Article Page Styling
+   ========================================= */
+#article-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+#article-content h3 {
+    color: var(--accent);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+#article-content p {
+    margin-bottom: 1.5rem;
+}
+
+#article-content ul,
+#article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+#article-content li {
+    margin-bottom: 0.5rem;
+}
+
 /* =========================================
    Components (Buttons, Tags)
    ========================================= */
@@ -1048,4 +1078,36 @@ input:focus {
     .social-links {
         align-items: center;
     }
+}
+
+/* =========================================
+   Floating WhatsApp Button
+   ========================================= */
+.whatsapp-float {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 2px 2px 3px #999;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 2px 2px 10px #666;
+}
+
+.whatsapp-float svg {
+    width: 35px;
+    height: 35px;
+    fill: white;
 }
