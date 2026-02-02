@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Подготовка к ЕНТ, ЕГЭ и олимпиадам. Объясняю физику и математику сложным языком для школьников. Современный подход без зубрежки.">
+    <meta name="keywords" content="репетитор физика, репетитор математика, ЕНТ, Алматы, подготовка к экзаменам">
+    <title>Munificent | Репетитор по физике и математике в Алматы</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://munificent.school/">
+    <meta property="og:title" content="Munificent | Репетитор по физике и математике">
+    <meta property="og:description"
+        content="Взломай код физики. Персональные занятия для тех, кто хочет понимать суть.">
+    <meta property="og:image" content="https://munificent.school/assets/img/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>M</text></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Main Script -->
+    <script src="assets/js/main.js" defer></script>
+</head>
+
+<body>
+
+    <header id="header">
+        <nav class="navbar">
+            <div class="container navbar__container">
+                <a href="#" class="logo">MUNIFICENT<span class="dot">.</span></a>
+                <button class="menu-toggle" aria-label="Открыть меню">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="#hero" class="nav-link">Главная</a></li>
+                    <li><a href="#lead-magnet" class="nav-link">Об авторе</a></li>
+                    <li><a href="#services-container" class="nav-link">Услуги</a></li>
+                    <li><a href="#blog-preview" class="nav-link">Блог</a></li>
+                    <li><a href="#footer" class="nav-link btn-nav">Контакты</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-bg"></div>
+            <div class="container hero-content">
+                <h1>Взломай код <span class="highlight">Физики</span> и Математики.</h1>
+                <p>Персональные занятия для тех, кто хочет понимать суть, а не зубрить формулы.</p>
+                <div class="hero-actions">
+                    <a href="https://wa.me/77085365323?text=Здравствуйте,%20я%20хочу%20записаться%20на%20урок!"
+                        target="_blank" class="btn btn--primary">Записаться на урок</a>
+                    <a href="#services-container" class="btn btn--secondary">Выбрать курс</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="lead-magnet">
+            <div class="lead-magnet__content">
+                <div class="lead-magnet__text">
+                    <h2>Не хочешь платить репетитору? <span class="highlight">Сдай сам.</span></h2>
+                    <p>Скачать шпаргалку: Вся геометрия за 9 класс</p>
+                </div>
+                <button id="openModalBtn" class="btn btn--primary btn--large">Скачать PDF</button>
+            </div>
+        </section>
+
+        <section id="team-container">
+            <!-- Team dynamic content -->
+        </section>
+
+        <section id="services-container">
+            <!-- Services dynamic content -->
+        </section>
+
+        <section id="blog-preview">
+            <!-- Blog preview content -->
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div class="container footer__container">
+            <div class="footer__col">
+                <h3>MUNIFICENT<span class="dot">.</span></h3>
+                <p>Продвинутая физика и математика для амбициозных.</p>
+            </div>
+            <div class="footer__col">
+                <h4>Контакты</h4>
+                <p>+7 (708) 536-53-23</p>
+                <p>hello@munificent.school</p>
+            </div>
+            <div class="footer__col">
+                <h4>Соцсети</h4>
+                <div class="social-links">
+                    <a href="#" class="social-link">Instagram</a>
+                    <a href="#" class="social-link">Telegram</a>
+                    <a href="#" class="social-link">YouTube</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; 2026 Munificent School. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Получи Шпаргалку</h2>
+            <p>Введи данные, и я отправлю PDF тебе на почту.</p>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">Имя</label>
+                    <input type="text" id="name" name="name" required placeholder="Твое имя">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="example@gmail.com">
+                </div>
+                <input type="hidden" name="contact_number" value="1">
+                <button type="submit" class="btn btn--primary btn--full">Получить сейчас</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
