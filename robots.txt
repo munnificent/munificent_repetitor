@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://munificent.school/sitemap.xml
+Sitemap: https://repetitor.munificent.net/sitemap.xml

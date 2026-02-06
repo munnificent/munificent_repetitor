@@ -13,8 +13,8 @@
     /* Deep Navy */
     --bg-card: #112240;
     /* Lighter Navy for cards */
-    --text-main: #8892b0;
-    /* Slate Grey */
+    --text-main: #a8b2d1;
+    /* Slate Grey (Lighter) */
     --text-bright: #ccd6f6;
     /* Off-white */
     --accent: #64ffda;
@@ -141,7 +141,20 @@ section {
     background: rgba(10, 25, 47, 0.85);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+
     transition: all 0.3s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .navbar__container {
@@ -322,6 +335,7 @@ section {
    Cards (Glassmorphism / Dark Tech)
    ========================================= */
 .card {
+    animation: fadeInUp 0.6s ease-out forwards;
     background-color: var(--bg-card);
     border: var(--border-neon);
     border-radius: 8px;
@@ -477,7 +491,18 @@ section {
 }
 
 #article-content p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.7;
+}
+
+#article-content blockquote {
+    border-left: 4px solid var(--accent);
+    padding-left: 1rem;
+    font-style: italic;
+    color: var(--text-bright);
+    background: rgba(100, 255, 218, 0.05);
+    padding: 1rem;
+    border-radius: 0 4px 4px 0;
 }
 
 #article-content ul,
@@ -533,6 +558,23 @@ section {
     display: inline-block;
     font-family: var(--font-tech);
     font-size: 0.9rem;
+}
+
+.btn-share {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 5px 15px;
+    border: 1px solid var(--text-main);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--text-bright);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-share:hover {
+    border-color: var(--accent);
+    color: var(--accent);
 }
 
 /* =========================================

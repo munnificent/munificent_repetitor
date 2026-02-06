@@ -79,7 +79,7 @@ async function renderServices(data) {
             <ul class="service-card__features">
                 ${product.features.map(feature => `<li class="service-card__feature-item">${feature}</li>`).join('')}
             </ul>
-            <button class="btn btn--primary service-card__action">Записаться</button>
+            <a href="https://wa.me/77085365323?text=Здравствуйте!%20Хочу%20записаться%20на%20курс:%20${product.title}" target="_blank" class="btn btn--primary service-card__action">Записаться в WhatsApp</a>
         </div>
     `).join('');
 
@@ -184,11 +184,28 @@ function renderFullArticle() {
             if (post) {
                 document.title = `${post.title} | Munificent`;
                 document.getElementById('article-title').textContent = post.title;
+
+                // Handle Hero Image
+                const heroImageDiv = document.getElementById('article-hero-image');
+                if (post.image && heroImageDiv) {
+                    heroImageDiv.innerHTML = `<img src="${post.image}" alt="${post.title}" style="width:100%; border-radius:8px; margin-bottom:1rem;">`;
+                } else if (heroImageDiv) {
+                    heroImageDiv.style.display = 'none';
+                }
+
                 document.getElementById('article-meta').innerHTML = `
                     <span>${post.date}</span> | 
                     <span style="color: var(--accent);">${post.tags.join(', ')}</span>
                 `;
-                document.getElementById('article-content').innerHTML = post.content;
+
+                const shareBlock = `
+                    <div class="share-block" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(100, 255, 218, 0.1);">
+                        <h4 style="margin-bottom: 1rem;">Понравилась статья? Поделись с друзьями:</h4>
+                        <a href="https://wa.me/?text=Смотри крутую статью: ${window.location.href}" target="_blank" class="btn-share">WhatsApp</a>
+                        <a href="https://t.me/share/url?url=${window.location.href}" target="_blank" class="btn-share">Telegram</a>
+                    </div>
+                `;
+                document.getElementById('article-content').innerHTML = post.content + shareBlock;
             } else {
                 document.getElementById('article-title').textContent = "Статья не найдена";
                 document.getElementById('article-content').innerHTML = "<p>Запрашиваемый материал отсутствует в нашей базе.</p>";
